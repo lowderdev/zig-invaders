@@ -10,3 +10,5 @@ zig build run
 ```
 
 This was built with Zig `0.15.2`
+
+![Zig Invaders](assets/zig-invaders.gif)
