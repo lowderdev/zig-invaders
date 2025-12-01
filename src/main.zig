@@ -445,6 +445,15 @@ pub fn main() !void {
                     }
                 }
 
+                for (&s.enemyBullets) |*enemyBullet| {
+                    if (enemyBullet.active and bullet.getRect().intersects(enemyBullet.getRect())) {
+                        enemyBullet.active = false;
+                        bullet.active = false;
+                        s.score += 5;
+                        continue :bullet_loop;
+                    }
+                }
+
                 for (&s.shields) |*shield| {
                     if (shield.health > 0 and bullet.getRect().intersects(shield.getRect())) {
                         shield.health -= 1;
